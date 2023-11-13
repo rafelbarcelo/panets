@@ -1,0 +1,18 @@
+PERSONA (ALUMNO)
+-Nombre
+-Num_exp
+-Foto
+-Curs
+-Grup
+-VIP
+-Acomp
+-Def haceVip
+-Def noVip
+-Def siAcomp
+-Def noAcomp
+
+Visitas
+-Fecha/hora
+-Aceptada/Rechazada
+-Alumno (relación con num. exp.) llave ajena FK
+
