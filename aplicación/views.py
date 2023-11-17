@@ -1,22 +1,18 @@
 from django.shortcuts import render
 from .models import Persona, Visitas
 
-<<<<<<< HEAD
-# Create your views here.
-=======
->>>>>>> 17ff45ebdd6280a2f2fe738d94adbddf2eaefb2f
 def lista_alumnos(request):
     pass
 
 def detalle_alumno(request, num_exp):
-    pass
+     # Obtener la lista de todos los alumnos desde la base de datos
+    alumnos = Persona.objects.all()
+
+    # Pasar la lista de alumnos al template
+    return render(request, 'lista_alumnos.html', {'alumnos': alumnos})
 
 def nueva_visita(request):
     pass
 
 def lista_visitas(request):
-<<<<<<< HEAD
     pass
-=======
-    pass
->>>>>>> 17ff45ebdd6280a2f2fe738d94adbddf2eaefb2f
