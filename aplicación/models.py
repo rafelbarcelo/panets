@@ -9,13 +9,13 @@ class Persona(models.Model):
     grup = models.CharField(max_length=50)
     vip = models.BooleanField(default=False)
     acomp = models.BooleanField(default=False)
-    def _hace_vip = models.BooleanField(default=False):
+    def _hace_vip (self):
         pass
-    def _no_vip = models.BooleanField(default=False):
+    def _no_vip (self):
         pass
-    def _si_acomp = models.BooleanField(default=False):
+    def _si_acomp (self):
         pass
-    def _no_acomp = models.BooleanField(default=False):
+    def _no_acomp (self):
         pass
 
     def __str__(self):
@@ -25,13 +25,7 @@ class Visitas(models.Model):
     fecha_hora = models.DateTimeField(auto_now_add=True)
     aceptada = models.BooleanField(default=False)
     alumno = models.ForeignKey(Persona, on_delete=models.CASCADE)
-<<<<<<< HEAD
-
-    def __str__(self):
-        return f"{self.alumno.nombre} - {self.fecha_hora}"
-=======
 
     def __str__(self):
         return f"{self.alumno.nombre} - {self.fecha_hora}"
 
->>>>>>> 17ff45ebdd6280a2f2fe738d94adbddf2eaefb2f
