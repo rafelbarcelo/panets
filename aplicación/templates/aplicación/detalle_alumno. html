@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Alumno</title>
+</head>
+<body>
+    <h1>Detalle del Alumno</h1>
+
+    <!-- Datos del Alumno -->
+    <h2>Información del Alumno</h2>
+    <p><strong>Nombre:</strong> {{Nombre}}</p>
+    <p><strong>Número de Expediente:</strong> {{Num_exp}}</p>
+    <p><strong>Foto:</strong> <img src="{{Foto}}" alt="Foto del Alumno"></p>
+    <p><strong>Curso:</strong> {{Curs}}</p>
+    <p><strong>Grupo:</strong> {{Grup}}</p>
+    <p><strong>Es VIP:</strong> {{VIP ? 'Sí' : 'No'}}</p>
+    <p><strong>Puede ir Acompañado:</strong> {{Acomp ? 'Sí' : 'No'}}</p>
+
+    <!-- Definiciones Específicas -->
+    <h2>Definiciones Específicas</h2>
+    <p><strong>Definición Hace VIP:</strong> {{Def_haceVip}}</p>
+    <p><strong>Definición No VIP:</strong> {{Def_noVip}}</p>
+    <p><strong>Definición Sí Acompañado:</strong> {{Def_siAcomp}}</p>
+    <p><strong>Definición No Acompañado:</strong> {{Def_noAcomp}}</p>
+
+    <!-- Última Visita -->
+    <h2>Última Visita</h2>
+    <p><strong>Fecha y Hora:</strong> {{Ultima_visita_fecha_hora}}</p>
+    <p><strong>Estado:</strong> {{Ultima_visita_estado}}</p>
+</body>
+</html>

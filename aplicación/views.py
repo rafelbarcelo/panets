@@ -6,6 +6,7 @@ def lista_alumnos(request):
 
 def detalle_alumno(request, num_exp):
     pass
+    return render(request, 'aplicación/detalle_alumno.html', {})
 
 def nueva_visita(request):
     pass
