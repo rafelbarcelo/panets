@@ -1,0 +1,22 @@
+<div class="contratoForm">
+
+    {% if "valido" in request.GET %}
+
+    <p style="color: white;" >Mensaje enviado correctamente.</p>
+
+    {% endif %}
+    {% if "novalido" in request.GET %}
+
+    <p style="color: white">Mensaje no enviado correctamente.</p>
+
+    {% endif %}
+
+    <from action="" method="POST" style="text-algin: center;">
+        {%csrf_tokenb%}
+        <table style="color:white; margin : 20px auto;">
+            {{form.as_table}}
+        </table>
+        <input type="submit" value="Enviar" style="width: 150px;">
+    </from>
+
+</div>
