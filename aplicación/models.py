@@ -1,31 +1,26 @@
 from django.db import models
-from django.db import models
 
-class Persona(models.Model):
-    nombre = models.CharField(max_length=255)
-    num_exp = models.CharField(max_length=20, unique=True)
-    foto = models.ImageField(upload_to='fotos/', null=True, blank=True)
-    curs = models.CharField(max_length=50)
-    grup = models.CharField(max_length=50)
-    vip = models.BooleanField(default=False)
-    acomp = models.BooleanField(default=False)
-    def _hace_vip (self):
-        pass
-    def _no_vip (self):
-        pass
-    def _si_acomp (self):
-        pass
-    def _no_acomp (self):
-        pass
+class Tipo(models.Model):
+    nombre=models.Charfield(max_lenght=50)
+    created=models.DateTimeField(auto_now_add=True)
+    updated=models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
+    class Meta:
+        verbose_name="TipoProducto"
+        verbose_name_plural="TiposProductos"
+
+    def__str__(self):
         return self.nombre
 
-class Visitas(models.Model):
-    fecha_hora = models.DateTimeField(auto_now_add=True)
-    aceptada = models.BooleanField(default=False)
-    alumno = models.ForeignKey(Persona, on_delete=models.CASCADE)
+class Producto (models.Model):
+    nombre=models.Charfield(max_lenght=50)
+    tipo=models.ForeignKey(Tipo, on_delete=models.CASCADE)
+    imagen=models.ImageField(upload_to="gimnasio", null=True, balnk=True)
+    precio=models.FloatField()
+    stock=models.BooleanField(default=True)
+    created=models.DateTimeField(auto_now_add=True)
+    updated=models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"{self.alumno.nombre} - {self.fecha_hora}"
-
+    class Meta:
+        verbose_name="Producto"
+        verbose_name_plural="Productos"
