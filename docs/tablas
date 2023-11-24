@@ -1,18 +1,29 @@
-PERSONA (ALUMNO)
--Nombre
--Num_exp
--Foto
--Curs
--Grup
--VIP
--Acomp
--Def haceVip
--Def noVip
--Def siAcomp
--Def noAcomp
-
-Visitas
--Fecha/hora
--Aceptada/Rechazada
--Alumno (relación con num. exp.) llave ajena FK
-
+Usuario
+    - No registrado:
+    - Registrado:
+        - ID:Int
+        - Nombre: String
+        - Gmail: String
+        - Password: String
+        - Staff: Boolean = False
+    - Administrador:
+        - ID:Int
+        - Nombre: String
+        - Gmail: String
+        - Password: String
+        - Staff: Boolean = True
+Actividad:
+    - ID: Int
+    - Título: String
+    - Contenido: String
+    - Dia; String
+    - horaInicio: Int
+    - horaFin: Int
+    - Imagen: ImagenType
+Producto:
+    - ID: Int
+    - Nombre: String
+    - Precio: Float
+    - Stock: Boolean
+    - Imagen: ImagenType
+    - Tipo: String
