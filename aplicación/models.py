@@ -1,26 +1,36 @@
 from django.db import models
 
-class Tipo(models.Model):
-    nombre=models.Charfield(max_lenght=50)
-    created=models.DateTimeField(auto_now_add=True)
-    updated=models.DateTimeField(auto_now_add=True)
+class Usuario(models.Model):
+    NO_REGISTRADO = 'NR'
+    REGISTRADO = 'R'
+    ADMINISTRADOR = 'A'
 
-    class Meta:
-        verbose_name="TipoProducto"
-        verbose_name_plural="TiposProductos"
+    TIPO_USUARIO_CHOICES = [
+        (NO_REGISTRADO, 'No registrado'),
+        (REGISTRADO, 'Registrado'),
+        (ADMINISTRADOR, 'Administrador'),
+    ]
 
-    def__str__(self):
-        return self.nombre
+    tipo_usuario = models.CharField(
+        max_length=2,
+        choices=TIPO_USUARIO_CHOICES,
+        default=NO_REGISTRADO
+    )
+    nombre = models.CharField(max_length=255, blank=True, null=True)
+    gmail = models.EmailField(unique=True)
+    password = models.CharField(max_length=255)
+    staff = models.BooleanField(default=False)
 
-class Producto (models.Model):
-    nombre=models.Charfield(max_lenght=50)
-    tipo=models.ForeignKey(Tipo, on_delete=models.CASCADE)
-    imagen=models.ImageField(upload_to="gimnasio", null=True, balnk=True)
-    precio=models.FloatField()
-    stock=models.BooleanField(default=True)
-    created=models.DateTimeField(auto_now_add=True)
-    updated=models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return f'{self.get_tipo_usuario_display()} - {self.nombre}'
 
-    class Meta:
-        verbose_name="Producto"
-        verbose_name_plural="Productos"
+class Actividad(models.Model):
+    id = models.AutoField(primary_key=True)
+    titulo = models.CharField(max_length=255)
+    contenido = models.TextField()
+    dia = models.CharField(max_length=20)
+    hora_inicio = models.IntegerField()
+    hora_fin = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.titulo} - {self.dia} - {self.hora_inicio}-{self.hora_fin}'
