@@ -26,6 +26,7 @@ class Usuario(models.Model):
 
 class Actividad(models.Model):
     id = models.AutoField(primary_key=True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=255)
     contenido = models.TextField()
     dia = models.CharField(max_length=20)
